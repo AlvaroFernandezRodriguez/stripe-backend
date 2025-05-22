@@ -2,15 +2,9 @@ const express = require("express");
 const Stripe = require("stripe");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const dotenv = require("dotenv");
-
-// Cargar variables de entorno desde .env si no estás en producción
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config();
-}
 
 const app = express();
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // ⚠️ Define esto en Render
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // ⚠️ Define esta variable en Render
 
 app.use(cors());
 app.use(bodyParser.json());
